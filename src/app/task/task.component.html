@@ -1,0 +1,87 @@
+
+<form id="input">
+  <div class="row mt-4">
+    <h2 class="col-8 offset-1">Паралельні алгоритми множення матриць</h2>
+    <h4 class="col-8 offset-1">Базовий паралельний алгоритм множення матриць</h4>
+
+    <div class="col-4 offset-1 mt-5 inBlock">
+      <p>Введіть початкові розміри матриць (m x n),<br> (n x l)</p>
+      <div class="input-group p-1">
+        <label class="input-group-prepend pr-2">m = </label>
+        <input class="form-control" type="text" name='m' [(ngModel)]="service.inp.m">
+      </div>
+      <div class="input-group p-1">
+        <label class="input-group-prepend pr-2">n = </label>
+        <input class="form-control" type="text" name='n' [(ngModel)]="service.inp.n">
+      </div>
+      <div class="input-group p-1">
+        <label class="input-group-prepend pr-2">l = </label>
+        <input class="form-control" type="text" name='l' [(ngModel)]="service.inp.l">
+      </div>
+    </div>
+
+    <div class="col-4 offset-1 mt-5 inBlock">
+      <p>Введіть крок для наступних експериментів </p>
+      <div class="input-group p-3">
+        <label class="input-group-prepend pr-2">m += </label>
+        <input class="form-control" type="text" name='m1' [(ngModel)]="service.inp.mStep">
+      </div>
+      <div class="input-group p-3">
+        <label class="input-group-prepend pr-2">l += </label>
+        <input class="form-control" type="text" name='l1' [(ngModel)]="service.inp.lStep">
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-5">
+    <button class="btn btn-info col-2" (click)="onSubmit()">Запустити</button>
+  </div>
+</form>
+
+<form id="result" hidden>
+  <div *ngIf="!showMatrixResult" class="text-center align-items-center m-3 pt-3">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <h5>Результат початкових обчислень</h5>
+            <p>Час виконання :</p>
+            <div class="text-center">
+              <p>{{matrices[0].elapsedMs}} мс</p>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of matrices[0].resArr"> {{i}}
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <ul>
+        <ol *ngFor="let m of matrices">{{m.elapsedMs}} ms</ol>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center mt-3">
+    <button class="btn btn-outline-light col-2" (click)="changeMatrixResultVisibility()"> Показати всі результати</button>
+  </div>
+  <div *ngIf="showMatrixResult" class="text-center align-items-center mt-3">
+    <table *ngFor="let m of matrices; let i = index;">
+      <thead>
+        <tr>
+          <th class="text-center">
+            <h5>Результат початкових обчислень</h5>
+            <p>Час виконання :</p>
+            <p>{{m.elapsedMs}} мс</p>
+        </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of m.resArr">
+          {{row}}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+

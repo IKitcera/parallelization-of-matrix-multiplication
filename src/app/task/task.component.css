@@ -1,0 +1,44 @@
+h4{
+  color:lightpink;
+}
+#input{
+  color:lightcyan;
+
+}
+.inBlock{
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px black;
+}
+input[type="text"]{
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, palevioletred , aquamarine);
+  border-image-slice: 1;
+  color:white
+}
+input[type="text"]:focus{
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, palevioletred , aquamarine);
+  border-image-slice: 1;
+  color:white
+}
+table{
+  color: lightblue;
+  border-bottom: 2px solid palevioletred;
+  margin: 0 auto;
+
+}
+tr{
+  border-bottom: 2px solid palevioletred;
+}
+td{
+  border: 2px solid palevioletred;
+}
+th{
+  color: lightgray;
+  backdrop-filter: brightness(0.5);
+}

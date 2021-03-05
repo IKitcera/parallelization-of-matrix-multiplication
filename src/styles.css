@@ -1,0 +1,6 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body{
+  background: rgba(54,53,77,0.86);
+  font-family: "Lucida Console";
+}
